@@ -112,8 +112,10 @@ func BasicInfo() []byte {
 		fmt.Fprintf(tw, "Build Time:\t%v (%v ago)\n", buildTime,
 			time.Since(buildTime).Truncate(time.Second))
 	}
-	fmt.Fprintf(tw, "Server Uptime:\t%v\n",
-		time.Since(startupTime).Truncate(time.Second))
+	uptime := time.Since(startupTime).Truncate(time.Second)
+	if uptime != 0 {
+		fmt.Fprintf(tw, "Server Uptime:\t%v\n", uptime)
+	}
 	_, _ = tw.Write(buildInfo)
 	_ = tw.Flush()
 	return b.Bytes()
