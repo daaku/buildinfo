@@ -56,9 +56,9 @@ func init() {
 	buildTime = time.Unix(buildTimeUnixI, 0)
 
 	info := bytes.Buffer{}
-	fmt.Fprintf(&info, "Build Hash:\t%s\n", buildHash)
 	fmt.Fprintf(&info, "Release Version:\t%s\n", releaseVersion)
 	fmt.Fprintf(&info, "Go Version:\t%s\n", runtime.Version())
+	fmt.Fprintf(&info, "Build Hash:\t%s\n", buildHash)
 	if buildURL != "" {
 		fmt.Fprintf(&info, "Build URL:\t%s\n", buildURL)
 	}
